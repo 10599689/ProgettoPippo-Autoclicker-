@@ -37,10 +37,10 @@ public class MouseJiggler {
 
             JToggleButton bottone = new JToggleButton("Avvia");
 
-            bottone.addActionListener(_ -> {
+            bottone.addActionListener(e -> {
                 if (bottone.isSelected()) {
                     int secondi = (Integer) intervallo.getValue();
-                    timer = new Timer(secondi * 1000, _ -> {
+                    timer = new Timer(secondi * 1000, ev -> {
                         Point p = MouseInfo.getPointerInfo().getLocation();
                         int delta = direzione ? 1 : -1;
                         robot.mouseMove(p.x + delta, p.y);
